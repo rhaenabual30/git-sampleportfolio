@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+        <title>Reservations</title>
+    <link rel="stylesheet" href="css/admin-kitchen.css">
+    <script type="module" src="javascript/admin-role-guard.js"></script>
+    </head>
+    <body>
+<!--         <header>
+            <div class="dropdown">
+                <a href="#" class="top-left-button" id="dropdown-button">
+                    <img src="assets/admin-dropdown.png" class="dropdown-icon" alt="Dropdown Icon">
+                </a>
+                <div id="dropdown-nav" class="dropdown-nav">
+                    <ul>
+                        <li><a href="admin-dashboard.html">Dashboard</a></li>
+                        <li><a href="admin-sales.html">Sales</a></li>
+                        <li><a href="admin-orders.html">Orders</a></li>
+                        <li><a href="admin-products.html">Products</a></li>
+                        <li><a href="admin-events.html">Promos</a></li>
+                        <li><a href="admin-settings.html">Settings</a></li>
+                        <li><a href="#" onclick="showModal()">Log Out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header> -->
+    
+        <div class="sidebar">
+            <div class="logo">
+                <img src="assets/images/gulperslogo.png" alt="Restaurant Logo">
+            </div>
+            <a href="admin-dashboard.html"><img src="assets/images/icons/dashboard.png" class="icon">Dashboard</a>
+            <a href="admin-sales.html"><img src="assets/images/icons/sales.png" class="icon">Sales</a>
+            <br><br>
+            <a href="admin-reservation.html"><img src="assets/images/icons/reservations.png" class="icon">Reservations</a>
+            <a href="admin-table.html"><img src="assets/images/icons/table.png" class="icon">Table Management</a>
+            <a href="admin-orders.html"><img src="assets/images/icons/orders.png" class="icon">Orders</a>
+            <a href="admin-kitchen.html" class="dashboard-link active"><img src="assets/images/icons/kitchen.png" class="icon">Kitchen</a>
+            <a href="admin-menu.html"><img src="assets/images/icons/menu.png" class="icon">Menu</a>
+            <a href="admin-employees.html"><img src="assets/images/icons/employee.png" class="icon">Employee</a>
+            <a href="index.html"><img src="assets/images/icons/web.png" class="icon">Go to Website</a>
+            <br><br>
+            <a href="#"><img src="assets/images/icons/logs.png" class="icon">Logs</a>
+            <a href="#"><img src="assets/images/icons/settings.png" class="icon">Settings</a>
+            <a href="#" id="showLogout"><img src="assets/images/icons/logout.png" class="icon">Log Out</a>
+        </div>
+    
+        <div class="main-content">
+            <div class="welcome-message">Kitchen</div>
+
+            <div class="kitchen-orders">
+                <div id="kitchenOrdersContainer" class="kitchen-orders-container">
+                    <!-- Static placeholder card - JS will replace / populate dynamically -->
+                </div>
+            </div>
+
+            <!-- <table class="orders-detail">
+                <thead>
+                    <tr>
+                        <th>TABLE NO.</th>
+                        <th>TABLE ID</th>
+                        <th>ORDER</th>
+                        <th>TOTAL</th>
+                        <th>MODE</th>
+                        <th>DATE</th>
+                        <th>TIME</th>
+                        <th>STATUS</th>
+                        <th>MORE</th>
+                    </tr>
+                </thead>
+                <tbody id="orders-rows">
+                    Dynamic rows will be injected here 
+                </tbody>
+            </table> -->
+        </div>
+
+        <!-- Add Reservation Modal
+        <div id="addReservationModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close-btn" id="closeAddReservation">&times;</span>
+                    <h2>Add Reservation</h2>
+                </div>
+                <form id="addReservationForm" class="modal-form">
+                    <label for="arName">Name</label>
+                    <input type="text" id="arName" name="name" placeholder="Mr. Gulper" required>
+
+                    <label for="arArea">Area</label>
+                    <select id="arArea" name="area" required>
+                        <option value="inside">Inside</option>
+                        <option value="outside">Outside</option>
+                    </select>
+
+                    <label for="arTableId">Table</label>
+                    <select id="arTableId" name="tableId" required>
+                        <option value="">-- Select Table --</option>
+                        <option value="IN1">IN1</option>
+                        <option value="IN2">IN2</option>
+                        <option value="IN3">IN3</option>
+                        <option value="IN4">IN4</option>
+                        <option value="IN5">IN5</option>
+                        <option value="IN6">IN6</option>
+                        <option value="OU1">OU1</option>
+                        <option value="OU2">OU2</option>
+                        <option value="OU3">OU3</option>
+                        <option value="OU4">OU4</option>
+                        <option value="OU5">OU5</option>
+                        <option value="OU6">OU6</option>
+                    </select>
+
+                    <div class="date-time-group">
+                        <div class="form-field">
+                            <label for="arDate">Date</label>
+                            <input type="date" id="arDate" name="date" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="arTime">Time</label>
+                            <input type="time" id="arTime" name="time" required>
+                        </div>
+                        <div class="form-field">
+                            <label>&nbsp;</label>
+                            <button type="button" id="arNowBtn" class="now-btn">Now</button>
+                        </div>
+                    </div>
+
+                    <label for="arPeople">No. of People</label>
+                    <input type="number" id="arPeople" name="people" min="1" max="20" required>
+
+                    <label for="arStatus">Status</label>
+                    <select id="arStatus" name="status" required>
+                        <option value="booked">Booked</option>
+                        <option value="seated">Seated</option>
+                        <option value="waiting">Waiting</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+
+                    <div class="modal-actions">
+                        <button type="submit" class="btn save">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div> -->
+
+        <!-- Orders Details Modal -->
+        <div id="orderDetailsModal" class="modal" style="display:none;">
+            <div class="modal-content" style="max-width:520px;">
+                <div class="modal-header">
+                    <span class="close-btn" id="closeOrderDetails" style="float:right;font-size:24px;font-weight:bold;cursor:pointer;color:#2B193C;">&times;</span>
+                    <h2>Order Details</h2>
+                </div>
+                <div id="orderDetailsBody" style="display:flex;flex-direction:column;gap:8px;"></div>
+            </div>
+        </div>
+
+        <!-- Generic Info Modal -->
+        <div id="adminInfoModal" class="modal" style="display:none;">
+            <div class="modal-content" style="max-width:420px;">
+                <div class="modal-header">
+                    <h3 id="adminInfoText" style="margin:0;">Info</h3>
+                </div>
+                <div class="modal-actions" style="display:flex;justify-content:flex-end;gap:10px;margin-top:20px;">
+                    <button id="adminInfoOk" class="btn save" style="padding:10px 16px;font-weight:600;cursor:pointer;background:#2B193C;color:#fff;border:2px solid #2B193C;">OK</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Generic Confirm Modal -->
+        <div id="adminConfirmModal" class="modal" style="display:none;">
+            <div class="modal-content" style="max-width:420px;">
+                <div class="modal-header">
+                    <h3 id="adminConfirmText" style="margin:0;">Confirm</h3>
+                </div>
+                <div class="modal-actions" style="display:flex;justify-content:flex-end;gap:10px;margin-top:20px;">
+                    <button id="adminConfirmCancel" class="btn delete" style="padding:10px 16px;font-weight:600;cursor:pointer;">Cancel</button>
+                    <button id="adminConfirmOk" class="btn save" style="padding:10px 16px;font-weight:600;cursor:pointer;background:#2B193C;color:#fff;border:2px solid #2B193C;">Confirm</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="logoutModal" class="modal">
+            <div class="modal-content">
+                <h3>Are you sure you want to log out?</h3>
+                <button class="confirm" onclick="confirmLogout()">Yes</button>
+                <button class="cancel" onclick="hideModal()">No</button>
+            </div>
+        </div>
+
+        <script type="module" src="javascript/admin-kitchen.js"></script>
+    </body>
+</html>

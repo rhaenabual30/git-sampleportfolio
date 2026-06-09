@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gulper's Registration</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="css/registration.css">
+    <link rel="stylesheet" href="css/header.css">
+</head>
+<body>
+
+    <header>
+            <div class="header-container">
+                <a href="index.html" class="logo-link">
+                    <img src="assets/images/gulperslogo.png" id="logo" alt="The Gulper's Bar & Resturant Logo">
+                </a>
+                <div class="mobile-menu-trigger">
+                    <img src="assets/images/icons/more.png" alt="Menu">
+                </div>
+                <nav id="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="menu.html">MENU</a></li>
+                        <li><a href="seats.html">SEATS</a></li>
+                        <li><a href="reservation.html">RESERVE</a></li>
+                        <li><a href="about.html">ABOUT</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
+                    </ul>
+                </nav>
+                <div class="profile-link">
+                    <img src="assets/images/icons/profile.png" id="profile" alt="Profile">
+
+                    <!-- Dropdown menu -->
+                    <div class="profile-dropdown" id="profile-dropdown">
+                        <!-- Content will be injected via JS -->
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+    <section class="hero">
+        <div class="hero-content">
+            <img src="assets/images/gulperslogo.png" alt="The Gulper's Logo" class="hero-logo">
+
+            <form class="login-form" action="#" method="POST">
+                <span class="instruction">Fields with<span class="required"> * </span>are required</span>
+                <div class="input-group name-containers">
+                    <div class="input-wrapper">
+                        <span class="label">First Name<span class="required"> *</span></span>
+                        <input type="text" id="first-name" name="first-name" placeholder="ex. Juan">
+                    </div>
+                    <div class="input-wrapper">
+                        <span class="label">Middle Name</span>
+                        <input type="text" id="middle-name" name="middle-name" placeholder="ex. Dela">
+                    </div>
+                    <div class="input-wrapper">
+                        <span class="label">Last Name<span class="required"> *</span></span>
+                        <input type="text" id="last-name" name="last-name" placeholder="ex. Cruz">
+                    </div>
+                </div>
+
+                <div class="input-group single-line">
+                    <div class="input-wrapper">
+                        <span class="label">Contact Number<span class="required"> *</span></span>
+                        <input type="tel" id="contact-number" name="contact-number" placeholder="ex. 09123456789" maxlength="11" pattern="^09[0-9]{9}$" title="Phone number must start with '09' and be exactly 11 digits">
+                    </div>
+                </div>
+
+                <div class="input-group date-containers">
+                    <!-- Birth Month Dropdown -->
+                    <div class="input-wrapper">
+                        <span class="label">Birth Month<span class="required"> *</span></span></span>
+                        <select id="birth-month" name="birth-month">
+                            <option value="">Month</option>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                    </div>
+
+                    <!-- Birth Year Dropdown -->
+                    <div class="input-wrapper">
+                        <span class="label">Birth Year<span class="required"> *</span></span>
+                        <select id="birth-year" name="birth-year">
+                            <option value="">Year</option>
+                            <!-- Example range: 1900 to current year -->
+                            <!-- JavaScript can generate dynamically, but for static HTML: -->
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <!-- Add more down to 1900 -->
+                        </select>
+                    </div>
+
+                    <!-- Birth Day Dropdown -->
+                    <div class="input-wrapper">
+                        <span class="label">Birth Day<span class="required"> *</span></span>
+                        <select id="birth-day" name="birth-day">
+                            <option value="">Day</option>
+                            <!-- Days 1–31 -->
+                            <!-- You can use a loop to generate these in backend -->
+                            <!-- Or just paste below manually -->
+                            <!-- Example up to 31 -->
+                            <!-- You can also generate these dynamically if using JavaScript -->
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-group single-line">
+                    <div class="input-wrapper">
+                        <span class="label">Email<span class="required"> *</span></span>
+                        <input type="email" id="email" name="email" placeholder="example@gmail.com" title="Please use Gmail, Yahoo, Outlook, Hotmail, Rocketmail, Live, MSN, or iCloud">
+                    </div>
+                </div>
+
+                <div class="input-group single-line">
+                    <div class="input-wrapper">
+                        <span class="label">Password<span class="required"> *</span></span>
+                        <input type="password" id="password" name="password" placeholder="Password">
+                    </div>
+                </div>
+
+                <div class="input-group single-line">
+                    <div class="input-wrapper">
+                        <span class="label">Confirm Password<span class="required"> *</span></span>
+                        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password">
+                    </div>
+                </div>
+
+                <p id="existing"><a href="login.html">Already have an account? Sign-in Here!</a></p>
+
+                <div class="submit-group">
+                    <button type="submit" id="submit">REGISTER</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-main">
+            <div class="footer-col contact">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>
+                        <a href="#" class="footer-icon phone-icon"><img src="assets/images/icons/phone.png" alt="phone icon"></a>
+                        <span>+639958142352 / +6399275849302</span>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-icon instagram-icon"><img src="assets/images/icons/instagram.png" alt="instagram icon"></a>
+                        <span>@gulpersresto</span>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-icon facebook-icon"><img src="assets/images/icons/fb.png" alt="fb icon"></a>
+                        <span>facebook.com/GulpersRestaurant</span>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-icon email-icon"><img src="assets/images/icons/email.png" alt="email icon"></a>
+                        <span>marketing.bryramal@gmail.com</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-col logo">
+                <img src="assets/images/gulperslogo.png" alt="The Gulper's Bar & Restaurant Logo" class="footer-logo">
+            </div>
+            <div class="footer-col hours">
+                <h3>Convenience &amp; Service Hours</h3>
+                <p>
+                    Whether you’re dropping by for dine-in or need delivery/takeout, 
+                    The Gulpers’ makes it easy. We’re open every day, generally from 
+                    10 AM until 2 AM, and even during the enhanced community quarantine,
+                     we continued serving customers via takeout and delivery.
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 The Gulper's Bar & Restaurant. All rights reserved.
+        </div>
+    </footer>
+                          <!-- Notification Modal -->
+        <div id="notificationModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="notificationTitle">Notification</h3>
+                </div>
+                <p id="notificationMessage"></p>
+                <div class="modal-actions">
+                    <button id="notificationOk" class="btn">OK</button>
+                </div>
+            </div>
+        </div>
+    <script src="javascript/registration.js" type="module"></script>
+</body>
+</html>
+

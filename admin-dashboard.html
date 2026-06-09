@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+        <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/admin-dashboard.css">
+    <script type="module" src="javascript/admin-role-guard.js"></script>
+    </head>
+    <body>
+<!--         <header>
+            <div class="dropdown">
+                <a href="#" class="top-left-button" id="dropdown-button">
+                    <img src="assets/admin-dropdown.png" class="dropdown-icon" alt="Dropdown Icon">
+                </a>
+                <div id="dropdown-nav" class="dropdown-nav">
+                    <ul>
+                        <li><a href="admin-dashboard.html">Dashboard</a></li>
+                        <li><a href="admin-sales.html">Sales</a></li>
+                        <li><a href="admin-orders.html">Orders</a></li>
+                        <li><a href="admin-products.html">Products</a></li>
+                        <li><a href="admin-events.html">Promos</a></li>
+                        <li><a href="admin-settings.html">Settings</a></li>
+                        <li><a href="#" onclick="showModal()">Log Out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header> -->
+    
+        <div class="sidebar">
+            <div class="logo">
+                <img src="assets/images/gulperslogo.png" alt="Restaurant Logo">
+            </div>
+            <a href="admin-dashboard.html" class="dashboard-link active"><img src="assets/images/icons/dashboard.png" class="icon">Dashboard</a>
+            <a href="admin-sales.html"><img src="assets/images/icons/sales.png" class="icon">Sales</a>
+            <br><br>
+            <a href="admin-reservation.html"><img src="assets/images/icons/reservations.png" class="icon">Reservations</a>
+            <a href="admin-table.html"><img src="assets/images/icons/table.png" class="icon">Table Management</a>
+            <a href="admin-orders.html"><img src="assets/images/icons/orders.png" class="icon">Orders</a>
+            <a href="admin-kitchen.html"><img src="assets/images/icons/kitchen.png" class="icon">Kitchen</a>
+            <a href="admin-menu.html"><img src="assets/images/icons/menu.png" class="icon">Menu</a>
+            <a href="admin-employees.html"><img src="assets/images/icons/employee.png" class="icon">Employee</a>
+            <a href="index.html"><img src="assets/images/icons/web.png" class="icon">Go to Website</a>
+            <br><br>
+            <a href="#"><img src="assets/images/icons/logs.png" class="icon">Logs</a>
+            <a href="#"><img src="assets/images/icons/settings.png" class="icon">Settings</a>
+            <a href="#" id="showLogout"><img src="assets/images/icons/logout.png" class="icon">Log Out</a>
+        </div>
+    
+        <div class="main-content">
+            <div class="welcome-message">Welcome to Dashboard!</div>
+            <div class="dashboard-content">
+                <div class="sales-and-events">
+                    <div class="sales-content">
+                        <div class="sales-details">
+                            <div class="metric-inline">
+                                <img src="assets/images/icons/chair.png" class="metric-icon" alt="Tables" />
+                                <span>Tables Available:</span>
+                                <span class="order-number">12</span>
+                            </div>
+                            <div class="metric-inline">
+                                <img src="assets/images/icons/chair.png" class="metric-icon" alt="Tables" />
+                                <span>Tables Reserved:</span>
+                                <span class="order-number">12</span>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="sales-content">
+                        <h2>Table Occupancy Map</h2>
+                        <div class="occupancy-row">
+                            <div class="occupancy-column">
+                                <h3>INDOORS:</h3>
+                                <p>IN01 Status: <span class="status occupied">Occupied</span></p>
+                                <p>IN02 Status: <span class="status occupied">Occupied</span></p>
+                                <p>IN03 Status: <span class="status available">Available</span></p>
+                                <p>IN04 Status: <span class="status available">Available</span></p>
+                            </div>
+                            <div class="occupancy-column">
+                                <h3>OUTDOORS:</h3>
+                                <p>OUT01 Status: <span class="status occupied">Occupied</span></p>
+                                <p>OUT02 Status: <span class="status available">Available</span></p>
+                                <p>OUT03 Status: <span class="status available">Available</span></p>
+                                <p>OUT04 Status: <span class="status occupied">Occupied</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="system-health">
+                        <h2><img src="assets/images/icons/settings-button.png" class="section-icon" alt="System Icon"/>System Health Status</h2>
+                        <div class="health-status-grid">
+                            <div class="health-card">
+                                <div class="health-card-left">
+                                    <img src="assets/images/icons/sensor.png" class="status-icon" alt="Sensor Icon" />
+                                    <span>Reservation Sensor</span>
+                                </div>
+                                <span class="status-badge ok">Operational</span>
+                            </div>
+            
+                            <div class="health-card">
+                                <div class="health-card-left">
+                                    <img src="assets/images/icons/wifi.png" class="status-icon" alt="WiFi Icon" />
+                                    <span>Internet Connection</span>
+                                </div>
+                                <span class="status-badge ok">Connected</span>
+                            </div>
+            
+                            <div class="health-card">
+                                <div class="health-card-left">
+                                    <img src="assets/images/icons/entrance-screen.png" class="status-icon" alt="Display Screen Icon" />
+                                    <span>Entrance Display Screen</span>
+                                </div>
+                                <span class="status-badge warn">Offline</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="event-content">
+                    <h2>Today's Reservation Summary</h2>
+    
+                    <div class="reservation-metrics">
+                        <div class="metric-box">
+                            <p class="metric-label">Today's Reservations</p>
+                            <p class="metric-value">30</p>
+                        </div>
+                        <div class="metric-box">
+                            <p class="metric-label">Upcoming Reservations</p>
+                            <p class="metric-value">47</p>
+                        </div>
+                        <div class="metric-box">
+                            <p class="metric-label">Cancelled Reservations</p>
+                            <p class="metric-value">8</p>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="recent-activity">
+                        <h2>Recent Activity</h2>
+                        <div class="recent-activity-container">
+                            <ul class="activity-list">
+                                <li><span class="time">2 min ago</span> • Reservation confirmed for <strong>Anna L.</strong></li>
+                                <li><span class="time">10 min ago</span> • <strong>Michael S.</strong> canceled their table</li>
+                                <li><span class="time">20 min ago</span> • Walk-in recorded: <strong>2 guests</strong></li>
+                                <li><span class="time">30 min ago</span> • Reservation updated for <strong>Table 6</strong></li>
+                                <li><span class="time">45 min ago</span> • Reservation confirmed for <strong>Julia K.</strong></li>
+                                <li><span class="time">1 hr ago</span> • <strong>Table 3</strong> exceeded 1.5 hrs</li>
+                                <li><span class="time">2 min ago</span> • Reservation confirmed for <strong>Anna L.</strong></li>
+                                <li><span class="time">10 min ago</span> • <strong>Michael S.</strong> canceled their table</li>
+                                <li><span class="time">20 min ago</span> • Walk-in recorded: <strong>2 guests</strong></li>
+                                <li><span class="time">30 min ago</span> • Reservation updated for <strong>Table 6</strong></li>
+                                <li><span class="time">45 min ago</span> • Reservation confirmed for <strong>Julia K.</strong></li>
+                                <li><span class="time">1 hr ago</span> • <strong>Table 3</strong> exceeded 1.5 hrs</li>
+                                <li><span class="time">2 min ago</span> • Reservation confirmed for <strong>Anna L.</strong></li>
+                                <li><span class="time">10 min ago</span> • <strong>Michael S.</strong> canceled their table</li>
+                                <li><span class="time">20 min ago</span> • Walk-in recorded: <strong>2 guests</strong></li>
+                                <li><span class="time">30 min ago</span> • Reservation updated for <strong>Table 6</strong></li>
+                                <li><span class="time">45 min ago</span> • Reservation confirmed for <strong>Julia K.</strong></li>
+                                <li><span class="time">1 hr ago</span> • <strong>Table 3</strong> exceeded 1.5 hrs</li>
+                                <li><span class="time">2 min ago</span> • Reservation confirmed for <strong>Anna L.</strong></li>
+                                <li><span class="time">10 min ago</span> • <strong>Michael S.</strong> canceled their table</li>
+                                <li><span class="time">20 min ago</span> • Walk-in recorded: <strong>2 guests</strong></li>
+                                <li><span class="time">30 min ago</span> • Reservation updated for <strong>Table 6</strong></li>
+                                <li><span class="time">45 min ago</span> • Reservation confirmed for <strong>Julia K.</strong></li>
+                                <li><span class="time">1 hr ago</span> • <strong>Table 3</strong> exceeded 1.5 hrs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <div id="logoutModal" class="modal">
+            <div class="modal-content">
+                <h3>Are you sure you want to log out?</h3>
+                <button class="confirm" onclick="confirmLogout()">Yes</button>
+                <button class="cancel" onclick="hideModal()">No</button>
+            </div>
+        </div>
+                        <!-- Notification Modal -->
+        <div id="notificationModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="notificationTitle">Notification</h3>
+                </div>
+                <p id="notificationMessage"></p>
+                <div class="modal-actions">
+                    <button id="notificationOk" class="btn">OK</button>
+                </div>
+            </div>
+        </div>
+        <script src="javascript/admin-dashboard.js" type="module"></script>
+    </body>
+</html>

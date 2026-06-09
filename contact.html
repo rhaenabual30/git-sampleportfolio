@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Gulper's Resturant</title>
+        <link rel="stylesheet" href="css/contact.css">
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link rel="stylesheet" href="css/header.css">
+    </head>
+    <body>
+        <header>
+            <div class="header-container">
+                <a href="index.html" class="logo-link">
+                    <img src="assets/images/gulperslogo.png" id="logo" alt="The Gulper's Bar & Resturant Logo">
+                </a>
+                <div class="mobile-menu-trigger">
+                    <img src="assets/images/icons/more.png" alt="Menu">
+                </div>
+                <nav id="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="menu.html">MENU</a></li>
+                        <li><a href="seats.html">SEATS</a></li>
+                        <li><a href="reservation.html">RESERVE</a></li>
+                        <li><a href="about.html">ABOUT</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
+                    </ul>
+                </nav>
+                <div class="profile-link">
+                    <img src="assets/images/icons/profile.png" id="profile" alt="Profile">
+
+                    <!-- Dropdown menu -->
+                    <div class="profile-dropdown" id="profile-dropdown">
+                        <!-- Content will be injected via JS -->
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <section class="contact-section">
+    <div class="contact-container">
+        <!-- Left Side: Contact Info -->
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p>Feel free to reach out to us through any of these channels. We're here to assist you with your inquiries, reservations, or feedback.</p>
+            <ul>
+                <li><img src="assets/images/icons/phone.png" alt="Phone">+639958142352</li>
+                <li><img src="assets/images/icons/email.png" alt="Email">@gulpersresto</li>
+                <li><img src="assets/images/icons/location.png" alt="Location">Dahlia, North Fairview</li>
+            </ul>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/gulpersresto" target="_blank">
+                        <img src="assets/images/icons/instagram.png" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/GulpersRestaurant" target="_blank">
+                        <img src="assets/images/icons/fb.png" alt="Facebook">
+                    </a>
+                    <a href="mailto:marketing.bryramal@gmail.com">
+                        <img src="assets/images/icons/email.png" alt="Email">
+                    </a>
+                </div>
+        </div>
+
+        <!-- Right Side: Contact Form -->
+        <div class="contact-form">
+            <form>
+                <div class="row">
+                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="Last Name" required>
+                </div>
+                <div class="row">
+                    <input type="email" placeholder="Email" required>
+                    <input type="text" placeholder="Phone Number" required>
+                </div>
+                <div class="row subject">
+                    <label>Select Subject?</label>
+                    <div class="options">
+                        <label><input type="radio" name="subject" checked> General Inquiry</label>
+                        <label><input type="radio" name="subject"> Reservation</label>
+                        <label><input type="radio" name="subject"> Menu Question</label>
+                        <label><input type="radio" name="subject"> Feedback</label>
+                        <label><input type="radio" name="subject"> Business</label>
+                        <label><input type="radio" name="subject"> Other</label>
+                    </div>
+                </div>
+                <textarea placeholder="Write your message.." required></textarea>
+                <button type="submit" class="send-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+        <script src="javascript/contact.js" type="module"></script>
+    </body>
+</html>

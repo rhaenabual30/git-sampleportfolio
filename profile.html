@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Gulper's Resturant</title>
+        <link rel="stylesheet" href="css/profile.css">
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    </head>
+    <body>
+        <header>
+            <div class="header-container">
+                <a href="index.html" class="logo-link">
+                    <img src="assets/images/gulperslogo.png" id="logo" alt="The Gulper's Bar & Resturant Logo">
+                </a>
+                <!-- <div class="mobile-menu-trigger">
+                    <img src="assets/images/icons/more.png" alt="Menu">
+                </div> -->
+                <nav id="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="menu.html">MENU</a></li>
+                        <li><a href="seats.html">SEATS</a></li>
+                        <li><a href="reservation.html">RESERVE</a></li>
+                        <li><a href="about.html">ABOUT</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
+                    </ul>
+                </nav>
+                <div class="profile-link">
+                    <img src="assets/images/icons/profile.png" id="profile" alt="Profile">
+
+                    <!-- Dropdown menu -->
+                    <div class="profile-dropdown" id="profile-dropdown">
+                        <!-- Content will be injected via JS -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="hero">
+    <!-- Top Section with background image -->
+    <div class="imaginary-div">
+
+    </div>
+    <div class="hero-top">
+        <img src="assets/images/background.png" alt="Restaurant Background">
+    </div>
+
+    <!-- Bottom Section with user info -->
+    <div class="hero-bottom">
+        <div class="hero-content">
+            <div class="profile-form">
+                <!-- Section divider: Security -->
+                <div class="section-divider"><span>GENERAL</span></div>
+
+                <!-- Name Fields in one row -->
+                <div class="name-row">
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" placeholder="ex. Juan" />
+                    </div>
+                    <div class="form-group">
+                        <label for="middle-name">Middle Name</label>
+                        <input type="text" id="middle-name" placeholder="ex. Dela" />
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" placeholder="ex. Cruz" />
+                    </div>
+                </div>
+
+                <!-- Contact Number -->
+                <div class="form-group">
+                    <label for="contact-number">Contact Number</label>
+                    <input type="text" id="contact-number" placeholder="ex. 09123456789" maxlength="11" pattern="[0-9]{11}" />
+                </div>
+
+                <!-- Birthdate Fields in one row: Day, Month, Year -->
+                <div class="date-row">
+                    <div class="form-group">
+                        <label for="birth-month">Birth Month</label>
+                        <select id="birth-month">
+                            <option value="">Month</option>
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="birth-day">Birth Day</label>
+                        <select id="birth-day">
+                            <option value="">Day</option>
+                            <!-- Days populated by JS -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="birth-year">Birth Year</label>
+                        <select id="birth-year">
+                            <option value="">Year</option>
+                            <!-- Years populated by JS -->
+                        </select>
+                    </div>
+                </div>
+
+                <p>&nbsp;</p>
+                <button id="saveBtn">SAVE CHANGES</button>
+                <br>
+
+                <!-- Section divider: Security -->
+                <div class="section-divider"><span>SECURITY</span></div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">EMAIL <span id="email-verify-status" class="verify-status"></span></label>
+                    <input type="email" id="email" disabled/>
+                    <button type="button" id="verifyEmailBtn" class="verify-email-btn" style="display:none;">Verify Email</button>
+                </div>
+
+                <p>&nbsp;</p>
+
+                <!-- Passwords -->
+                <div class="form-group">
+                    <label for="password">PASSWORD</label>
+                    <input type="password" id="password" placeholder="XXXXXXXXXX" disabled/>
+                    <button type="button" id="changePasswordBtn" class="change-password-btn" disabled>Change Password</button>
+                </div>
+
+                <p>&nbsp;</p>
+                <br>
+
+                <!-- Section divider: Reservation -->
+                <div class="section-divider"><span>RESERVATION</span></div>
+
+                <p class="seeReservation" id="seeReservation">View Reservations</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-main">
+                <div class="footer-col contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>
+                            <a href="#"  class="footer-icon phone-icon"><img src="assets/images/icons/phone.png" alt="phone icon"></a>
+                            <span>+639958142352 / +6399275849302</span>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-icon instagram-icon"><img src="assets/images/icons/instagram.png" alt="instagram icon"></a>
+                            <span>@gulpersresto</span>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-icon facebook-icon"><img src="assets/images/icons/fb.png" alt="fb icon"></a>
+                            <span>facebook.com/GulpersRestaurant</span>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-icon email-icon"><img src="assets/images/icons/email.png" alt="email icon"></a>
+                            <span>marketing.bryramal@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col logo">
+                    
+                    <img src="assets/images/gulperslogo.png" alt="The Gulper's Bar & Restaurant Logo" class="footer-logo">
+                </div>
+                <div class="footer-col hours">
+                    <h3>Convenience &amp; Service Hours</h3>
+                    <p>
+                        Whether you’re dropping by for dine-in or need delivery/takeout, 
+                        The Gulpers’ makes it easy. We’re open every day, generally from 
+                        10 AM until 2 AM, and even during the enhanced community quarantine,
+                         we continued serving customers via takeout and delivery.
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 The Gulper's Bar & Restaurant. All rights reserved.
+            </div>
+        </footer>
+
+                <!-- Logout Confirmation Modal -->
+        <div id="logoutModal" class="modal">
+        <div class="modal-content">
+            <h2>Confirm Logout</h2>
+            <p>Are you sure you want to log out?</p>
+            <div class="modal-actions">
+            <button id="cancelLogout">Cancel</button>
+            <button id="confirmLogout">Log Out</button>
+            </div>
+        </div>
+        </div>
+
+        <!-- Change Password Modal -->
+        <div id="changePasswordModal" class="modal">
+            <div class="modal-content" style="max-width:420px;">
+                <h2>Change Password</h2>
+                <div class="form-group">
+                    <label for="newPasswordInput">New Password</label>
+                    <input type="password" id="newPasswordInput" placeholder="Enter new password" />
+                </div>
+                <div class="form-group">
+                    <label for="confirmNewPasswordInput">Confirm New Password</label>
+                    <input type="password" id="confirmNewPasswordInput" placeholder="Confirm new password" />
+                </div>
+                <div class="modal-actions">
+                    <button id="cancelChangePassword">Cancel</button>
+                    <button id="confirmChangePassword">Update</button>
+                </div>
+            </div>
+        </div>
+
+        <script type="module" src="javascript/profile.js"></script>
+
+    </body>
+</html>

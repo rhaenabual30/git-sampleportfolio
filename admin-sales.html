@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+    <title>Sales</title>
+    <link rel="stylesheet" href="css/admin-sales.css">
+    <script type="module" src="javascript/admin-role-guard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Optional: ExcelJS if you later want true .xlsx export -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script> -->
+    <link rel="icon" href="assets/images/gulperslogo.png">
+    <meta name="theme-color" content="#2B193C">
+    <meta name="description" content="Sales dashboard for SenSeat admin">
+    <style>
+        /* Small fallback to avoid FOUC before CSS loads */
+        body{opacity:1;}
+    </style>
+    
+    <!-- Basic SEO -->
+    <meta name="robots" content="noindex,nofollow">
+</head>
+<body>
+    <div class="sidebar">
+            <div class="logo">
+                <img src="assets/images/gulperslogo.png" alt="Restaurant Logo">
+            </div>
+            <a href="admin-dashboard.html"><img src="assets/images/icons/dashboard.png" class="icon">Dashboard</a>
+            <a href="admin-sales.html" class="dashboard-link active"><img src="assets/images/icons/sales.png" class="icon">Sales</a>
+            <br><br>
+            <a href="admin-reservation.html"><img src="assets/images/icons/reservations.png" class="icon">Reservations</a>
+            <a href="admin-table.html"><img src="assets/images/icons/table.png" class="icon">Table Management</a>
+            <a href="admin-orders.html"><img src="assets/images/icons/orders.png" class="icon">Orders</a>
+            <a href="admin-kitchen.html"><img src="assets/images/icons/kitchen.png" class="icon">Kitchen</a>
+            <a href="admin-menu.html"><img src="assets/images/icons/menu.png" class="icon">Menu</a>
+            <a href="admin-employees.html"><img src="assets/images/icons/employee.png" class="icon">Employee</a>
+            <a href="index.html"><img src="assets/images/icons/web.png" class="icon">Go to Website</a>
+            <br><br>
+            <a href="#"><img src="assets/images/icons/logs.png" class="icon">Logs</a>
+            <a href="#"><img src="assets/images/icons/settings.png" class="icon">Settings</a>
+            <a href="#" id="showLogout"><img src="assets/images/icons/logout.png" class="icon">Log Out</a>
+        </div>
+
+    <div class="main-content">
+        <div class="texttitle"><p>Sales</p></div>
+
+        <div class="dashboard-content">
+            <div class="most-ordered">
+                <div class="most-ordered-content category">
+                    <div class="category-text"><span>Total Orders by Category</span></div>
+                    <div class="most-ordered-categories">
+                        <table class="sales-category-table" id="categoryTable">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Quantity</th>
+                                    <th>Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="most-ordered-content product">
+                    <div class="product-text"><span>Total Orders by Product</span></div>
+                    <div class="most-ordered-products">
+                        <table class="sales-product-table" id="productTable">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sales-and-events">
+                <div class="sales-content">
+                    <div class="sales-header">
+                        <span>Total Sale</span>
+                        <div class="dropdowns">
+                            <label for="fromDate" class="date">From:</label>
+                            <input type="date" id="fromDate" class="date" name="fromDate" disabled>
+
+                            <label for="toDate" class="date">To:</label>
+                            <input type="date" id="toDate" class="date" name="toDate" disabled>
+
+                            <select id="month">
+                                <option value="" disabled selected>Month</option>
+                            </select>
+                            <select id="day">
+                                <option value="" disabled selected>Day</option>
+                            </select>
+                            <select id="year">
+                                <option value="" disabled selected>Year</option>
+                            </select>
+                            <select id="filterMode">
+                                <option value="currently" selected>Today</option>
+                                <!--<option value="daily">Day</option>
+                                <option value="monthly">Month</option>
+                                <option value="yearly">Year</option>-->
+                                <option value="range">Range</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="sales-details">
+                        <!-- Reservations summary -->
+                        <table class="sales-info-table" id="reservationsInfoTable">
+                            <thead>
+                                <tr>
+                                    <th>Total Reservations:</th>
+                                    <th>Reservations Completed:</th>
+                                    <th>Reservations Cancelled:</th>
+                                </tr>
+                            </thead>
+                            <tbody id="reservationsInfoBody">
+                                <tr>
+                                    <td id="info-res-total">0</td>
+                                    <td id="info-res-completed">0</td>
+                                    <td id="info-res-cancelled">0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Sales summary -->
+                        <table class="sales-info-table" id="salesMoneyTable" style="margin-top:16px;">
+                            <thead>
+                                <tr>
+                                    <th>Total Sales:</th>
+                                </tr>
+                            </thead>
+                            <tbody id="salesMoneyBody">
+                                <tr>
+                                    <td id="info-sales">0.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <!-- Tables completed -->
+                        <table class="sales-info-table" id="tablesInfoTable" style="margin-top:16px;">
+                            <thead>
+                                <tr>
+                                    <th>Total Tables Completed:</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tablesInfoBody">
+                                <tr>
+                                    <td id="info-tables-completed">0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <button id="export">Export</button>
+                    </div>
+                </div>
+
+                <div class="chart-content">
+                    <div class="chart-header">
+                        <span>Sales Chart</span>
+                    </div>
+                    <div class="chart-details">
+                        <canvas id="sales-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Modal -->
+    <div id="logoutModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <h3>Are you sure you want to log out?</h3>
+            <button class="confirm" id="confirmLogout">Yes</button>
+            <button class="cancel" id="cancelLogout">Cancel</button>
+        </div>
+    </div>
+
+    <script type="module" src="javascript/admin-sales.js"></script>
+</body>
+</html>

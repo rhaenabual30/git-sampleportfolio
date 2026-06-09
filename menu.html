@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gulper's Resturant</title>
+    <link rel="stylesheet" href="css/menu.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo-link">
+                <img src="assets/images/gulperslogo.png" id="logo" alt="The Gulper's Bar & Resturant Logo">
+            </a>
+            <!-- <div class="mobile-menu-trigger">
+                <img src="assets/images/icons/more.png" alt="Menu">
+            </div> -->
+            <nav id="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="menu.html">MENU</a></li>
+                    <li><a href="seats.html">SEATS</a></li>
+                    <li><a href="reservation.html">RESERVE</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+            <div class="profile-link">
+                <img src="assets/images/icons/profile.png" id="profile" alt="Profile">
+
+                <!-- Dropdown menu -->
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <!-- Content will be injected via JS -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MENU SECTION -->
+    <section class="menu-section">
+        <!-- Search + Cart -->
+        <div class="menu-header">
+            <input type="text" placeholder="Search" class="menu-search" id="menu-search">
+        </div>
+
+        <!-- Categories -->
+        <div class="menu-categories">
+            <button class="active" data-category="all">All</button>
+            <button data-category="breakfast">Breakfast</button>
+            <button data-category="lunch">Lunch</button>
+            <button data-category="snacks">Snacks</button>
+            <button data-category="dessert">Dessert</button>
+        </div>
+
+        <!-- Menu Items Grid -->
+        <div class="menu-grid">
+            <div class="menu-card" data-category="lunch">
+                <img src="assets/images/menuitems/bulalosteak.png" alt="Bulalo Steak">
+                <h3>Bulalo Steak</h3>
+                <p>“Tender beef shank served on a sizzling plate, smothered in savory gravy with bone marrow goodness.”</p>
+                <div class="menu-info">
+                    <span class="price">₱300</span>
+                    <span class="servings">
+                        <img src="assets/images/icons/people.png" alt="people icon"> 2-4
+                    </span>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="lunch">
+                <img src="assets/images/menuitems/sisig.png" alt="Sisig">
+                <h3>Pork Sisig</h3>
+                <p>“A sizzling mix of crispy pork, onions, and chili, topped with a creamy egg — a Filipino favorite packed with flavor.”</p>
+                <div class="menu-info">
+                    <span class="price">₱450</span>
+                    <span class="servings">
+                        <img src="assets/images/icons/people.png" alt="people icon"> 3-5
+                    </span>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="lunch">
+                <img src="assets/images/menuitems/grilled-tuna-belly.png" alt="Grilled Tuna Belly">
+                <h3>Grilled Tuna Belly</h3>
+                <p>“Juicy tuna belly grilled to perfection, served tender with a smoky, savory flavor.”</p>
+                <div class="menu-info">
+                    <span class="price">₱600</span>
+                    <span class="servings">
+                        <img src="assets/images/icons/people.png" alt="people icon"> 3-5
+                    </span>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="lunch">
+                <img src="assets/images/menuitems/crispypata.png" alt="Crispy Pata">
+                <h3>Crispy Pata</h3>
+                <p>“Deep-fried pork leg with golden, crunchy skin and tender, juicy meat — best enjoyed with dipping sauce.”</p>
+                <div class="menu-info">
+                    <span class="price">₱550</span>
+                    <span class="servings">
+                        <img src="assets/images/icons/people.png" alt="people icon"> 3-5
+                    </span>
+                </div>
+            </div>
+
+            <div class="menu-card" data-category="lunch">
+                <img src="assets/images/menuitems/crispypata.png" alt="Crispy Pata">
+                <h3>Crispy Pata</h3>
+                <p>“Deep-fried pork leg with golden, crunchy skin and tender, juicy meat — best enjoyed with dipping sauce.”</p>
+                <div class="menu-info">
+                    <span class="price">₱550</span>
+                    <span class="servings">
+                        <img src="assets/images/icons/people.png" alt="people icon"> 3-5
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-main">
+            <div class="footer-col contact">
+                <h3>Contact Us</h3>
+                <ul>
+                    <li>
+                        <a href="#" class="footer-icon phone-icon"><img src="assets/images/icons/phone.png" alt="phone icon"></a>
+                        <span>+639958142352 / +6399275849302</span>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-icon instagram-icon"><img src="assets/images/icons/instagram.png" alt="instagram icon"></a>
+                        <span>@gulpersresto</span>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-icon facebook-icon"><img src="assets/images/icons/fb.png" alt="fb icon"></a>
+                        <span>facebook.com/GulpersRestaurant</span>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-icon email-icon"><img src="assets/images/icons/email.png" alt="email icon"></a>
+                        <span>marketing.bryramal@gmail.com</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-col logo">
+                <img src="assets/images/gulperslogo.png" alt="The Gulper's Bar & Restaurant Logo" class="footer-logo">
+            </div>
+            <div class="footer-col hours">
+                <h3>Convenience &amp; Service Hours</h3>
+                <p>
+                    Whether you’re dropping by for dine-in or need delivery/takeout, 
+                    The Gulpers’ makes it easy. We’re open every day, generally from 
+                    10 AM until 2 AM, and even during the enhanced community quarantine,
+                    we continued serving customers via takeout and delivery.
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 The Gulper's Bar & Restaurant. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="javascript/menu.js" type="module"></script>
+</body>
+</html>

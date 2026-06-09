@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Gulper's Resturant</title>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+        <link rel="stylesheet" href="css/reservation.css">
+    </head>
+    <body>
+        <header>
+            <div class="header-container">
+                <a href="index.html" class="logo-link">
+                    <img src="assets/images/gulperslogo.png" id="logo" alt="The Gulper's Bar & Resturant Logo">
+                </a>
+                <div class="mobile-menu-trigger" id="mobile-menu-trigger">
+                    <img src="assets/images/icons/dashboard.png" alt="Menu" >
+                </div>
+                <nav id="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="menu.html">MENU</a></li>
+                        <li><a href="seats.html">SEATS</a></li>
+                        <li><a href="reservation.html">RESERVE</a></li>
+                        <li><a href="about.html">ABOUT</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
+                    </ul>
+                </nav>
+                <div class="profile-link">
+                    <img src="assets/images/icons/profile.png" id="profile" alt="Profile">
+
+                    <!-- Dropdown menu -->
+                    <div class="profile-dropdown" id="profile-dropdown">
+                        <!-- Content will be injected via JS -->
+                    </div>
+                </div>
+                
+                <!-- Mobile dropdown menu -->
+                <div class="mobile-dropdown" id="mobile-dropdown">
+                    <div class="nav-section">
+                        <h4>Navigation</h4>
+                        <a href="index.html">HOME</a>
+                        <a href="menu.html">MENU</a>
+                        <a href="seats.html">SEATS</a>
+                        <a href="reservation.html">RESERVE</a>
+                        <a href="about.html">ABOUT</a>
+                        <a href="contact.html">CONTACT</a>
+                    </div>
+                    <div class="nav-section" id="mobile-auth-section">
+                        <h4>Account</h4>
+                        <!-- Auth links will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <section class="seat-status">
+            <button class="page-label">SELECT TIME AND DATE FOR YOUR RESERVATION</button>
+
+            <div class="reservation-container">
+                <div class="reservation-content">
+                    <form class="reservation-form" action="#" method="GET">
+                        <label>
+                            Date:
+                            <input type="date" name="date">
+                        </label>
+
+                        <label>
+                            Time:
+                            <input type="time" name="time">
+                        </label>
+
+                        <label>
+                            No. of People:
+                            <input type="number" name="people" value="4" min="1" max="20">
+                        </label>
+
+                        <label>
+                            &nbsp;
+                            <button class="submit-button" type="submit">Check Availability</button>
+                        </label>
+                    </form>
+
+                    <div class="result-message">
+                        <strong>Please press "Check Availability" button to start choosing your desired table.</strong><br>
+                        <span class="subtext">Click an <span class="subtext-available">Available</span> table to book it.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="status-text">
+                <div class="legend">
+                    <span class="legend-item available"></span> Available
+                    <span class="legend-item reserved"></span> Reserved
+                </div>
+            </div>
+
+            <div class="restaurant-layout">
+                <!-- INSIDE LAYOUT -->
+                <div id="inside-layout">
+                    <div class="layout-title">INSIDE DINING</div>
+                    <div class="kitchen">KITCHEN</div>
+                    <div class="cashier">CASHIER</div>
+                    <div class="washroom">WASHROOM</div>
+                    <div class="event">EVENT<br>AREA</div>
+                    
+                    <div class="table" id="IN1" title="Reserve this table?">
+                        <img src="assets/images/tables/available.png" alt="Table Set">
+                        <span class="label">IN1</span>
+                    </div>
+
+                    <div class="table" id="IN2" title="Reserve this table?">
+                        <img src="assets/images/tables/available.png" alt="Table Set">
+                        <span class="label">IN2</span>
+                    </div>
+
+                    <div class="table" id="IN3" title="Reserve this table?">
+                        <img src="assets/images/tables/available.png" alt="Table Set">
+                        <span class="label">IN3</span>
+                    </div>
+
+                    <div class="table" id="IN4" title="Reserve this table?">
+                        <img src="assets/images/tables/available.png" alt="Table Set">
+                        <span class="label">IN4</span>
+                    </div>
+
+                    <div class="table" id="IN5" title="Reserve this table?">
+                        <img src="assets/images/tables/available.png" alt="Table Set">
+                        <span class="label">IN5</span>
+                    </div>
+
+                    <div class="table" id="IN6" title="Reserve this table?">
+                        <img src="assets/images/tables/available.png" alt="Table Set">
+                        <span class="label">IN6</span>
+                    </div>
+                </div>
+
+                <!-- OUTSIDE LAYOUT -->
+                <div id="outside-layout">
+                    <div class="layout-title">OUTSIDE DINING</div>
+                    
+                    <div class="table" id="OU1" title="Reserve this table?">
+                        <img src="assets/images/tables/available.png" alt="Table Set">
+                        <span class="label">OU1</span>
+                    </div>
+
+                    <div class="table" id="OU2" title="Reserve this table?">
+                        <img src="assets/images/tables/available.png" alt="Table Set">
+                        <span class="label">OU2</span>
+                    </div>
+
+                    <div class="table" id="OU3" title="Reserve this table?">
+                        <img src="assets/images/tables/available.png" alt="Table Set">
+                        <span class="label">OU3</span>
+                    </div>
+
+                    <div class="table" id="OU4" title="Reserve this table?">
+                        <img src="assets/images/tables/available.png" alt="Table Set">
+                        <span class="label">OU4</span>
+                    </div>
+
+                    <div class="table" id="OU5" title="Reserve this table?">
+                        <img src="assets/images/tables/available.png" alt="Table Set">
+                        <span class="label">OU5</span>
+                    </div>
+
+                    <div class="table" id="OU6" title="Reserve this table?">
+                        <img src="assets/images/tables/available.png" alt="Table Set">
+                        <span class="label">OU6</span>
+                    </div>
+
+                    <div class="parking">ROYALE PALACE<br>PARKING SPACE</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-main">
+                <div class="footer-col contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>
+                            <a href="#"  class="footer-icon phone-icon"><img src="assets/images/icons/phone.png" alt="phone icon"></a>
+                            <span>+639958142352 / +6399275849302</span>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-icon instagram-icon"><img src="assets/images/icons/instagram.png" alt="instagram icon"></a>
+                            <span>@gulpersresto</span>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-icon facebook-icon"><img src="assets/images/icons/fb.png" alt="fb icon"></a>
+                            <span>facebook.com/GulpersRestaurant</span>
+                        </li>
+                        <li>
+                            <a href="#" class="footer-icon email-icon"><img src="assets/images/icons/email.png" alt="email icon"></a>
+                            <span>marketing.bryramal@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-col logo">
+                    
+                    <img src="assets/images/gulperslogo.png" alt="The Gulper's Bar & Restaurant Logo" class="footer-logo">
+                </div>
+                <div class="footer-col hours">
+                    <h3>Convenience &amp; Service Hours</h3>
+                    <p>
+                        Whether you’re dropping by for dine-in or need delivery/takeout, 
+                        The Gulpers’ makes it easy. We’re open every day, generally from 
+                        10 AM until 2 AM, and even during the enhanced community quarantine,
+                         we continued serving customers via takeout and delivery.
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2024 The Gulper's Bar & Restaurant. All rights reserved.
+            </div>
+        </footer>
+        <script type="module" src="javascript/reservation.js"></script>
+    </body>
+</html>

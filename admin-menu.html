@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=League+Spartan:wght@100..900&display=swap" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+        <title>Menu Management</title>
+    <link rel="stylesheet" href="css/admin-menu.css">
+    <script type="module" src="javascript/admin-role-guard.js"></script>
+    </head>
+    <body>
+<!--         <header>
+            <div class="dropdown">
+                <a href="#" class="top-left-button" id="dropdown-button">
+                    <img src="assets/admin-dropdown.png" class="dropdown-icon" alt="Dropdown Icon">
+                </a>
+                <div id="dropdown-nav" class="dropdown-nav">
+                    <ul>
+                        <li><a href="admin-dashboard.html">Dashboard</a></li>
+                        <li><a href="admin-sales.html">Sales</a></li>
+                        <li><a href="admin-orders.html">Orders</a></li>
+                        <li><a href="admin-products.html">Products</a></li>
+                        <li><a href="admin-events.html">Promos</a></li>
+                        <li><a href="admin-settings.html">Settings</a></li>
+                        <li><a href="#" onclick="showModal()">Log Out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header> -->
+    
+        <div class="sidebar">
+            <div class="logo">
+                <img src="assets/images/gulperslogo.png" alt="Restaurant Logo">
+            </div>
+            <a href="admin-dashboard.html"><img src="assets/images/icons/dashboard.png" class="icon">Dashboard</a>
+            <a href="admin-sales.html"><img src="assets/images/icons/sales.png" class="icon">Sales</a>
+            <br><br>
+            <a href="admin-reservation.html"><img src="assets/images/icons/reservations.png" class="icon">Reservations</a>
+            <a href="admin-table.html"><img src="assets/images/icons/table.png" class="icon">Table Management</a>
+            <a href="admin-orders.html"><img src="assets/images/icons/orders.png" class="icon">Orders</a>
+            <a href="admin-kitchen.html"><img src="assets/images/icons/kitchen.png" class="icon">Kitchen</a>
+            <a href="admin-menu.html" class="dashboard-link active"><img src="assets/images/icons/menu.png" class="icon">Menu</a>
+            <a href="admin-employees.html"><img src="assets/images/icons/employee.png" class="icon">Employee</a>
+            <a href="index.html"><img src="assets/images/icons/web.png" class="icon">Go to Website</a>
+            <br><br>
+            <a href="#"><img src="assets/images/icons/logs.png" class="icon">Logs</a>
+            <a href="#"><img src="assets/images/icons/settings.png" class="icon">Settings</a>
+            <a href="#" id="showLogout"><img src="assets/images/icons/logout.png" class="icon">Log Out</a>
+        </div>
+    
+        <div class="main-content">
+            <div class="welcome-message">Menu Management</div>
+
+            <div class="buttons-container">
+                <button class="btn categories" id="openCategories">Categories</button>
+                <div class="right-buttons">
+                    <button class="btn delete">Delete Product</button>
+                    <button class="btn add">Add Product</button>
+                </div>
+            </div>
+
+            <table class="menu-table-container">
+                <thead>
+                    <tr class="menu-header">
+                        <td></td>
+                        <th>NAME</th>
+                        <th>IMAGE</th>
+                        <th>DESCRIPTION</th>
+                        <th>CATEGORY</th>
+                        <th>PRICE</th>
+                        <th>STATUS</th>
+                        <th>DATE</th>
+                        <th>TIME</th>
+                        <th>MORE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- To be filled in js -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Add Product Modal -->
+        <div id="addProductModal" class="modal">
+            <div class="modal-content" style="max-height:600px; overflow-y:auto;">
+                <div class="modal-header">
+                    <span class="close-btn" id="closeAddProduct">&times;</span>
+                    <h2>Add Product</h2>
+                </div>
+
+                <form class="modal-form" id="addProductForm">
+                    <label for="productName">Product Name</label>
+                    <input type="text" id="productName" name="productName" maxlength="20" required>
+
+                    <label for="productImageFile">Image</label>
+                    <input type="file" id="productImageFile" name="productImageFile" accept="image/*" required>
+
+                    <label for="productCategory">Category</label>
+                    <select id="productCategory" name="productCategory" required>
+                        <option value="">-- Select Category --</option>
+                    </select>
+
+                    <label for="productPrice">Price</label>
+                    <input type="number" id="productPrice" name="productPrice" step="0.01" required>
+
+                    <label for="productDescription">Description</label>
+                    <textarea id="productDescription" name="productDescription" rows="3" maxlength="50" placeholder="Enter description" required></textarea>
+
+                    <div class="date-time-group">
+                        <div class="form-field">
+                            <label for="productMinPax">Min PAX</label>
+                            <input type="number" id="productMinPax" name="productMinPax" min="1" step="1" placeholder="e.g. 2" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="productMaxPax">Max PAX</label>
+                            <input type="number" id="productMaxPax" name="productMaxPax" min="1" step="1" placeholder="e.g. 4" required>
+                        </div>
+                    </div>
+
+                    <label for="productStatus">Status</label>
+                    <select id="productStatus" name="productStatus" required>
+                        <option value="in_stock" selected>In Stock</option>
+                        <option value="out_of_stock">Out of Stock</option>
+                    </select>
+
+                    <div class="date-time-group">
+                        <div class="form-field">
+                            <label for="productDate">Date</label>
+                            <input type="date" id="productDate" name="productDate" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="productTime">Time</label>
+                            <input type="time" id="productTime" name="productTime" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label>&nbsp;</label>
+                            <button type="button" class="now-btn" id="productDateTimeNow">Now</button>
+                        </div>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="submit" class="btn save">Add Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Edit Product Modal -->
+        <div id="editProductModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close-btn" id="closeEditModal">&times;</span>
+                    <h2>Edit Product</h2>
+                </div>
+
+                <form id="editProductForm" class="modal-form">
+                    <label for="editName">Name</label>
+                    <input type="text" id="editName" name="editName" maxlength="20" required>
+
+                    <!-- Upload New Image here -->
+
+                    <label for="editCategory">Category</label>
+                    <select id="editCategory" name="editCategory" required></select>
+
+                    <label for="editPrice">Price</label>
+                    <input type="number" id="editPrice" name="editPrice" required step="0.01">
+
+                    <label for="editDescription">Description</label>
+                    <textarea id="editDescription" name="editDescription" rows="3" maxlength="50" placeholder="Enter description" required></textarea>
+
+                    <div class="date-time-group">
+                        <div class="form-field">
+                            <label for="editMinPax">Min PAX</label>
+                            <input type="number" id="editMinPax" name="editMinPax" min="1" step="1" placeholder="e.g. 2" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="editMaxPax">Max PAX</label>
+                            <input type="number" id="editMaxPax" name="editMaxPax" min="1" step="1" placeholder="e.g. 4" required>
+                        </div>
+                    </div>
+
+                    <label for="editStatus">Status</label>
+                    <select id="editStatus" name="editStatus" required>
+                        <option value="in_stock">In Stock</option>
+                        <option value="out_of_stock">Out of Stock</option>
+                    </select>
+
+                    <div class="date-time-group">
+                        <div class="form-field">
+                            <label for="productEditDate">Date</label>
+                            <input type="date" id="productEditDate" name="productEditDate" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="productEditTime">Time</label>
+                            <input type="time" id="productEditTime" name="productEditTime" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label>&nbsp;</label>
+                            <button type="button" class="now-btn" id="productEditDateTimeNow">Now</button>
+                        </div>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="submit" class="btn save">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Categories Modal -->
+        <div id="categoriesModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close-btn" id="closeCategories">&times;</span>
+                    <h2>Categories</h2>
+                </div>
+
+                <div class="modal-container">
+                    <div class="categories-table-container">
+                        <table class="categories-table">
+                            <thead>
+                                <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>More</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- To be filled in js -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <form class="modal-form" id="addCategoryForm">
+                        <h3>Configure Categories</h3>
+
+                        <label for="categoryName">Category Name</label>
+                        <input type="text" id="categoryName" name="categoryName" placeholder="Enter category name" required>
+
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" rows="3" placeholder="Enter description"></textarea>
+
+                        <div class="date-time-group">
+                            <div class="form-field">
+                                <label for="date">Date</label>
+                                <input type="date" id="date" name="date" required>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="time">Time</label>
+                                <input type="time" id="time" name="time" required>
+                            </div>
+
+                            <div class="form-field">
+                                <label>&nbsp;</label> <!-- empty label for spacing -->
+                                <button type="button" class="now-btn" id="date-time-now">Now</button>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn add">Add Category</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Category Modal -->
+        <div id="editCategoryModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close-btn" id="closeEditCategory">&times;</span>
+                    <h2>Edit Category</h2>
+                </div>
+
+                <form class="modal-form" id="editCategoryForm">
+                    <label for="editName">Category Name</label>
+                    <input type="text" id="editName" name="editName" required>
+
+                    <label for="editDescription">Description</label>
+                    <textarea id="editDescription" name="editDescription" rows="3"></textarea>
+
+                    <div class="date-time-group">
+                        <div class="form-field">
+                            <label for="editDate">Date</label>
+                            <input type="date" id="editDate" name="editDate" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="editTime">Time</label>
+                            <input type="time" id="editTime" name="editTime" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label>&nbsp;</label> <!-- empty label for spacing -->
+                            <button type="button" class="now-btn" id="edit-date-time-now">Now</button>
+                        </div>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button type="button" class="btn delete" id="deleteCategory">Delete Category</button>
+                        <button type="submit" class="btn save">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="logoutModal" class="modal">
+            <div class="modal-content">
+                <h3>Are you sure you want to log out?</h3>
+                <button class="confirm" onclick="confirmLogout()">Yes</button>
+                <button class="cancel" onclick="hideModal()">No</button>
+            </div>
+        </div>
+        <script type="module" src="javascript/admin-menu.js"></script>
+    </body>
+</html>
