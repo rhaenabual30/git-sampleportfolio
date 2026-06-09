@@ -1,0 +1,497 @@
+/* ---------- Background ---------- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Montserrat, sans-serif;
+    background: url('../assets/images/background.png') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+/* Use border-box to keep widths predictable and avoid overflow-related overlaps */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* body::before {
+    content: "";
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    filter: blur(8px);
+    z-index: -1;
+} */
+
+/* ---------- Header ---------- */
+header {
+    width: 100%;
+    background: #10181b;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: Montserrat, sans-serif;
+    padding: 0.5em 2em;
+    height: 60px;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex-shrink: 0; /* Prevents logo from shrinking */
+}
+
+.profile-link {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 68px;
+	height: 100%;
+	cursor: pointer;
+}
+
+.profile-dropdown {
+	display: none;
+	position: absolute;
+	top: 75%;
+	right: 0;
+	background-color: white;
+	border: 1px solid #ccc;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	min-width: 120px;
+	z-index: 10;
+}
+
+.profile-dropdown a {
+	display: block;
+	padding: 8px 16px;
+	color: #000;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.profile-dropdown a:hover {
+	background-color: #cacaca;
+}
+
+#logo {
+    height: 40px;
+    width: 68px;
+}
+
+#profile {
+    height: auto;
+    width: 35px;
+}
+
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-list {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    margin-left: 33px;
+    padding: 0;
+}
+
+.nav-list li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+
+.nav-list li a:hover {
+    color: #7c5e99;
+}
+
+.loginbutton#login {
+    background: #7c5e99;
+    color: #fff;
+    padding: 0.5em 2em;
+    border: none;
+    border-radius: 2px;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background 0.2s;
+    margin-left: auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginbutton#login:hover {
+    background: #5a4373;
+}
+
+/* ---------- Menu Section ---------- */
+.menu-section {
+    padding: 7em 2em 3em 2em; /* padding-top for fixed header */
+    min-height: 100vh;
+    font-family: Montserrat, sans-serif;
+}
+
+/* Search + Cart */
+.menu-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 1.5em;
+}
+
+.menu-search {
+    flex: 1; /* makes it take available width */
+    max-width: 400px; /* keeps it from being too wide */
+    padding: 0.7em;
+    border-radius: 1px;
+    border: 1px solid #979696;
+    font-size: 1em;
+}
+
+/* Search Button */
+.search-btn {
+    background: #7c5e99;
+    border: none;
+    padding: 0.6em 1em;
+    border-radius: 0px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-btn img {
+    width: 18px;
+    height: 18px;
+    border-radius: 1px;
+}
+
+/* Cart Button */
+.cart-btn {
+    background: #7c5e99;
+    border: none;
+    padding: 0.6em 1em;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cart-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Categories */
+.menu-categories {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    margin-bottom: 2em;
+    font-family: Montserrat, sans-serif;
+}
+
+.menu-categories button {
+    font-family: Montserrat, sans-serif;
+}
+
+.menu-categories button {
+    background: transparent;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    padding: 0.5em 1em;
+    color: #ffffff;
+    transition: 0.2s;
+    border-bottom: 2px solid #ffffff00;
+}
+
+.menu-categories button:hover,
+.menu-categories button.active {
+    border-bottom: 2px solid #7c5e99;
+    color: #bf90ea;
+}
+
+/* Menu Grid */
+.menu-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 15px;
+    max-width: 1000px;   /* same width as your header/nav */
+    margin: 0 auto;      /* center it */
+}
+
+/* Menu Cards */
+.menu-card {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    color: #fff;
+    width: 100%;        /* make card fill column */
+    display: flex;      /* enable flex layout to push footer down */
+    flex-direction: column;
+}
+
+.menu-card img {
+    width: 100%;
+    height: auto;           /* allow responsive height */
+    aspect-ratio: 1 / 1;    /* keep images square responsively */
+    object-fit: cover;      /* crop and fill without distortion */
+    object-position: center;/* center the crop */
+    display: block;         /* remove inline-gap and ensure proper sizing */
+    border-radius: 1px;
+    margin-bottom: 0.5em;
+}
+
+.menu-card h3 {
+    margin: 0.5em 0;
+}
+
+.menu-card p {
+    font-size: 0.9em;
+    margin-bottom: 1em;
+}
+
+.menu-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;   /* push to bottom of the card */
+    margin-bottom: 0;   /* sit flush with card padding */
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1;
+}
+
+.servings {
+    display: inline-flex;
+    align-items: center;    
+    gap: 6px;         
+    font-size: 0.95em;
+    font-weight: 600;
+}
+
+.servings img {
+    width: 17px;
+    height: 17px;
+    vertical-align: middle; 
+    line-height: 1;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    background: #10181b;
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em 2em 1em 2em;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    flex: 1 1 250px;
+    min-width: 220px;
+}
+
+.footer-col h3 {
+    margin-top: 0;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8em;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.footer-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 2.5em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.footer-logo {
+    display: block;
+    margin:  2em auto 1em auto;
+    max-width: 20em;
+    height: auto;
+    width: auto;
+}
+
+.footer-col.hours p {
+    font-size: 1em;
+    line-height: 1.5;
+    font-weight: lighter;
+}
+
+.footer-col.hours h3,
+.footer-col.contact h3 {
+    font-size: 1.5em;
+    line-height: 1em;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.95em;
+    color: #bbb;
+    padding: 0.7em 0 1em 0;
+    border-top: 1px solid #222;
+    margin-top: 1em;
+}
+
+/* ---------- Responsive (Mobile) ---------- */
+@media (max-width: 768px) {
+    /* Header: make nav horizontally scrollable and reduce font size */
+    .header-container {
+        padding: 0.5em 1em;
+        height: 60px;
+    }
+
+    .logo-link {
+        display: none;
+    }
+
+    .profile-link {
+        display: none;
+    }
+
+    .nav-list {
+        max-width: 75%;
+        gap: 15px;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        margin-left: 16px; /* slightly tighter on mobile */
+    }
+
+    .nav-list li a {
+        font-size: 12px; /* smaller header font on mobile */
+    }
+
+    .menu-section {
+        padding: 5em 1em 2em 1em; /* padding-top for fixed header */
+        min-height: 100vh;
+        font-family: Montserrat, sans-serif;
+    }
+
+    /* Menu header (search area): scrollable container and smaller font */
+    .menu-header {
+        font-size: 12px;
+        padding: 0 1em;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        gap: 0.75em;
+    }
+
+    .menu-search {
+        max-width: none; /* allow full width on mobile */
+        width: 100%;
+        font-size: 12px; /* slightly smaller text */
+    }
+
+    .search-btn,
+    .cart-btn {
+        padding: 0.5em 0.8em;
+    }
+
+    /* Categories */
+    .menu-categories {
+        font-size: 12px;
+        gap: 10px;
+        margin-bottom: 2em;
+        overflow-x: auto;
+    }
+
+    /* Menu grid: only 2 cards per row */
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px;
+        max-width: 100%;
+        padding: 0 0; /* breathing room on the sides */
+    }
+
+    /* Stabilize card height by fixing the image height on mobile */
+    .menu-card img {
+        height: 160px;         /* consistent visual height on small screens */
+        aspect-ratio: auto;    /* override to ensure fixed height takes effect */
+    }
+
+    .menu-card img.icon {
+        height: auto;         /* consistent visual height on small screens */
+        aspect-ratio: auto;    /* override to ensure fixed height takes effect */
+    }
+
+    .menu-card {
+        width: 100%; /* ensure full width of grid column */
+        height: 100%;
+    }
+
+    /* Adjust card title/description spacing and font sizes for tighter view */
+    .menu-card h3 {
+        font-size: 12px;
+        margin: 1px;
+    }
+
+    .menu-card p {
+        font-size: 0.85em;
+        margin-bottom: 0.8em;
+    }
+
+    .menu-info {
+        font-size: 16px;
+    }
+}

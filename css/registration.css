@@ -1,0 +1,734 @@
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('../assets/images/background.png') center center/cover no-repeat;
+    margin-top: 60px;
+    min-height: calc(100vh - 60px);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 2;
+    color: #fff;
+    margin: 80px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* ===== HEADER ===== */
+header {
+    width: 100%;
+    background: #10181b;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0.5em 2em;
+    height: 60px;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    flex-shrink: 0;
+}
+
+.profile-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 68px;
+    height: 100%;
+    cursor: pointer;
+}
+
+.profile-dropdown {
+    display: none;
+    position: absolute;
+    top: 75%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-width: 120px;
+    z-index: 10;
+}
+
+.profile-dropdown a {
+    display: block;
+    padding: 8px 16px;
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.profile-dropdown a:hover {
+    background-color: #cacaca;
+}
+
+#logo {
+    height: 40px;
+    width: 68px;
+}
+
+#profile {
+    height: auto;
+    width: 35px;
+}
+
+nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-list {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    margin-left: 33px;
+    padding: 0;
+}
+
+.nav-list li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    letter-spacing: 1px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.nav-list li a:hover {
+    color: #7c5e99;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    border: none;
+    outline: none;
+}
+
+.header-container > nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+} 
+
+/* Content Styles */
+.content {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.instruction {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.hero-logo {
+    width: 300px;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.home-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 68px;
+    height: 100%;
+    cursor: pointer;
+}
+
+#home {
+    height: auto;
+    width: 35px;
+}
+
+/* Form Styles */
+form {
+    font-family: 'Montserrat';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 80%;
+    padding: 20px;
+    gap: 15px;
+    margin: 0 auto;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.name-containers, .date-containers {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.name-containers input, .date-containers select {
+    width: 100%;
+}
+
+.date-containers .input-wrapper {
+    width: 100%;
+}
+
+.single-line {
+    display: flex;
+    width: 100%;
+}
+
+.single-line .input-wrapper {
+    width: 100%;
+}
+
+.required {
+    color: red;
+}
+
+input, select {
+    width: 100%;
+    padding: 0 30px 0 20px;
+    font-size: 14px;
+    border: none;
+    background-color: #d9d9d9ef;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+input#contact-number::placeholder, .input-group.name-containers input::placeholder {
+    font-style: italic;
+}
+
+.submit-group {
+    display: flex;
+    justify-content: center;
+}
+
+button[type="submit"] {
+    padding: 15px;
+    font-size: 16px;
+    background-color: #7c5e99;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    align-self: center;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: #5a4373;
+}
+
+#existing {
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+    font-size: 14px;
+    margin-top: 0;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
+footer {
+    background: #10181b;
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em 2em 1em 2em;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    flex: 1 1 250px;
+    min-width: 220px;
+}
+
+.footer-col h3 {
+    margin-top: 0;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8em;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.footer-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 2.5em;
+    margin-bottom: 1em;
+    text-align: center;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 1em;
+    line-height: 24px;
+}
+
+.footer-logo {
+    display: block;
+    margin: 2em auto 1em auto;
+    max-width: 20em;
+    height: auto;
+    width: auto;
+}
+
+.footer-col.hours p {
+    font-size: 1em;
+    line-height: 1.5;
+    font-weight: lighter;
+}
+
+.footer-col.hours h3 {
+    font-size: 1.5em;
+    line-height: 1em;
+}
+
+.footer-col.contact h3 {
+    font-size: 1.5em;
+    line-height: 1em;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.95em;
+    color: #bbb;
+    padding: 0.7em 0 1em 0;
+    border-top: 1px solid #222;
+    margin-top: 1em;
+} 
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    animation: modalSlideIn 0.3s ease-out;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-header h3 {
+    margin: 0 0 15px 0;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    color: #2B193C;
+}
+
+#notificationMessage {
+    margin: 20px 0;
+    color: #333;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.5;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+#notificationOk {
+    padding: 12px 30px;
+    font-weight: 600;
+    cursor: pointer;
+    background: #2B193C;
+    color: #fff;
+    border: 2px solid #2B193C;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+}
+
+#notificationOk:hover {
+    background-color: #f2edf8;
+    color: #2B193C;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(43, 25, 60, 0.3);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - MOBILE FIRST APPROACH
+   ============================================ */
+
+/* Tablet and smaller (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .header-container {
+        padding: 0.5em 1em;
+    }
+
+    .nav-list {
+        gap: 15px;
+        margin-left: 15px;
+    }
+
+    .nav-list li a {
+        font-size: 14px;
+    }
+
+    #logo {
+        height: 35px;
+        width: 58px;
+    }
+
+    #home {
+        width: 30px;
+    }
+
+    .hero-content {
+        margin: 40px 20px;
+    }
+
+    .hero-logo {
+        width: 200px;
+    }
+
+    form {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    /* Stack name fields vertically on tablet */
+    .name-containers {
+        flex-direction: column;
+    }
+
+    .name-containers .input-wrapper {
+        width: 100%;
+    }
+
+    /* Keep date fields in a row but adjust if needed */
+    .date-containers {
+        gap: 8px;
+    }
+
+    .footer-main {
+        padding: 1.5em 1em;
+        gap: 1.5em;
+    }
+
+    .footer-col {
+        min-width: 100%;
+    }
+
+    .footer-col.logo {
+        order: -1;
+    }
+
+    .footer-logo {
+        max-width: 15em;
+    }
+}
+
+/* Mobile (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    .header-container {
+        padding: 0.5em 0.75em;
+        height: 50px;
+    }
+
+    /* Hide text navigation on mobile */
+    nav {
+        display: none;
+    }
+
+    .logo-link {
+        margin-right: auto;
+    }
+
+    #logo {
+        height: 30px;
+        width: 50px;
+    }
+
+    #home {
+        width: 28px;
+    }
+
+    .hero {
+        margin-top: 50px;
+        min-height: calc(100vh - 50px);
+    }
+
+    .hero-content {
+        margin: 30px 15px;
+    }
+
+    .hero-logo {
+        width: 150px;
+        margin-bottom: 20px;
+    }
+
+    form {
+        padding: 15px 10px;
+        gap: 12px;
+    }
+
+    .instruction {
+        font-size: 12px;
+    }
+
+    .label {
+        font-size: 12px;
+    }
+
+    /* Stack all fields vertically */
+    .name-containers,
+    .date-containers {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .input-wrapper {
+        width: 100%;
+    }
+
+    input, select {
+        height: 45px;
+        font-size: 13px;
+        padding: 0 15px;
+    }
+
+    button[type="submit"] {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    #existing {
+        font-size: 12px;
+    }
+
+    .footer-main {
+        padding: 1em 0.75em;
+        text-align: center;
+    }
+
+    .footer-col ul li {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font-size: 0.9em;
+    }
+
+    .footer-icon {
+        margin-right: 0;
+        margin-bottom: 0.5em;
+    }
+
+    .footer-col h3 {
+        font-size: 1.1em;
+    }
+
+    .footer-col.hours p {
+        font-size: 0.9em;
+    }
+
+    .footer-logo {
+        max-width: 12em;
+    }
+
+    .footer-bottom {
+        font-size: 0.85em;
+        padding: 0.5em 0;
+    }
+
+    /* Modal adjustments for mobile */
+    .modal-content {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .modal-header h3 {
+        font-size: 18px;
+    }
+
+    #notificationMessage {
+        font-size: 14px;
+    }
+
+    #notificationOk {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+}
+
+/* Very small mobile devices (max-width: 360px) */
+@media screen and (max-width: 360px) {
+    .hero-content {
+        margin: 20px 10px;
+    }
+
+    .hero-logo {
+        width: 120px;
+    }
+
+    form {
+        padding: 10px 5px;
+    }
+
+    input, select {
+        height: 42px;
+        font-size: 12px;
+    }
+
+    .label {
+        font-size: 11px;
+    }
+
+    button[type="submit"] {
+        padding: 10px;
+        font-size: 13px;
+    }
+}
+
+/* Landscape mobile orientation */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+    }
+
+    .hero-content {
+        margin: 30px 20px;
+    }
+
+    .hero-logo {
+        width: 150px;
+        margin-bottom: 15px;
+    }
+
+    form {
+        gap: 10px;
+    }
+
+    .name-containers,
+    .date-containers {
+        flex-direction: row;
+        gap: 8px;
+    }
+}
